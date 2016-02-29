@@ -76,12 +76,12 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Outpost 2 Divided Destiny\$(TargetName).dll"
-copy /Y "$(ProjectDir)Ashes.map" "C:\Outpost 2 Divided Destiny\Ashes.map"
-copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "C:\Outpost 2 Divided Destiny\multitekNoLavaWalls.txt"</Command>
+      <Command>copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
+copy /Y "$(ProjectDir)Ashes.map" "..\..\..\..\GameDownload\Outpost2\trunk\Ashes.map"
+copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost2\trunk\multitekNoLavaWalls.txt"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost2 Directory</Message>
+      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost 2 game directory in SVN</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

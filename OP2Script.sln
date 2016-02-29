@@ -5,12 +5,12 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OP2Script", "OP2Script.vcxproj", "{6E5CBF67-9F43-4B81-B9BB-466EC52CCB2A}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Outpost2", "..\..\..\..\..\..\..\..\Outpost 2 Divided Destiny\Outpost2.exe", "{FBC04FDD-6A3B-4193-836D-BC20724368D0}"
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Outpost2", "..\..\..\..\GameDownload\Outpost2\trunk\Outpost2.exe", "{6964ACFD-E70B-4158-A279-581529E55FD2}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Outpost 2 Divided Destiny\Outpost2.exe
+		Executable = C:\Users\Brett\Documents\Outpost2SVN\GameDownload\Outpost2\trunk\Outpost2.exe
 		RemoteMachine = ENTERPRISEPC
-		StartingDirectory = C:\Outpost 2 Divided Destiny
+		StartingDirectory = C:\Users\Brett\Documents\Outpost2SVN\GameDownload\Outpost2\trunk
 		Environment = Default
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No
@@ -28,8 +28,8 @@ Global
 		{6E5CBF67-9F43-4B81-B9BB-466EC52CCB2A}.Release MinSize|x86.Build.0 = Release|Win32
 		{6E5CBF67-9F43-4B81-B9BB-466EC52CCB2A}.Release|x86.ActiveCfg = Release|Win32
 		{6E5CBF67-9F43-4B81-B9BB-466EC52CCB2A}.Release|x86.Build.0 = Release|Win32
-		{FBC04FDD-6A3B-4193-836D-BC20724368D0}.Release MinSize|x86.ActiveCfg = Release|x86
-		{FBC04FDD-6A3B-4193-836D-BC20724368D0}.Release|x86.ActiveCfg = Release|x86
+		{6964ACFD-E70B-4158-A279-581529E55FD2}.Release MinSize|x86.ActiveCfg = Release|x86
+		{6964ACFD-E70B-4158-A279-581529E55FD2}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
