@@ -236,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Readme.txt" />
+    <Text Include="multitekNoLavaWalls.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="odasl\odasl.def">
@@ -244,6 +245,7 @@
     <None Include="odasl\build.bat">
       <Filter>Odasl</Filter>
     </None>
+    <None Include="Ashes.map" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="odasl\odasl.lib">

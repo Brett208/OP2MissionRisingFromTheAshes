@@ -76,10 +76,12 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Outpost 2 Divided Destiny\$(TargetName).dll"</Command>
+      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Outpost 2 Divided Destiny\$(TargetName).dll"
+copy /Y "$(ProjectDir)Ashes.map" "C:\Outpost 2 Divided Destiny\Ashes.map"
+copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "C:\Outpost 2 Divided Destiny\multitekNoLavaWalls.txt"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy Level DLL and PDB to Outpost2 Directory</Message>
+      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost2 Directory</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -154,6 +156,9 @@
     <ClInclude Include="UnitHelper.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="multitekNoLavaWalls.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
     <Text Include="Readme.txt">
       <DeploymentContent>true</DeploymentContent>
     </Text>
@@ -164,6 +169,9 @@
       <DeploymentContent>false</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
     </_EmbedManagedResourceFile>
+    <None Include="Ashes.map">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="odasl\build.bat" />
     <None Include="odasl\odasl.def" />
   </ItemGroup>
