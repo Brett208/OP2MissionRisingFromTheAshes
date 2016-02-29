@@ -76,7 +76,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Users\Brett\Documents\Software\Outpost 2 Divided Destiny\$(TargetName).dll"</Command>
+      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Outpost 2 Divided Destiny\$(TargetName).dll"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copy Level DLL and PDB to Outpost2 Directory</Message>

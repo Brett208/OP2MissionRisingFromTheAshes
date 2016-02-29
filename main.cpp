@@ -103,18 +103,6 @@ int InitProc()
 	
 	scriptGlobal.TrigAIBaseReinforcement = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "AddRepairConVec");
 
-	//Unit unit;
-	//vehicleBuilderAI.SetPlayer(0);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapLynx, LOCATION(15 + X_, 145 + Y_), mapLaser);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapLynx, LOCATION(15 + 31, 147 + Y_), mapRailGun);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapLynx, LOCATION(15 + 31, 149 + Y_), mapThorsHammer);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapLynx, LOCATION(15 + 31, 151 + Y_), mapAcidCloud);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapPanther, LOCATION(15 + 31, 153 + Y_), mapMicrowave);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapTiger, LOCATION(15 + 31, 155 + Y_), mapStickyfoam);
-	//vehicleBuilderAI.CreateVechLightsOn(unit, mapScorpion, LOCATION(15 + 31, 157 + Y_), mapEnergyCannon);
-	//vehicleBuilderAI.SetPlayer(1);
-
-	//TODO: Write up what repeatStartIndex does to Wiki.
 	TethysGame::SetMusicPlayList(5, 1, PlayList);
 
 	return 1; // return 1 if OK; 0 on failure
@@ -144,7 +132,11 @@ void AIProc()
 	UpdateAIVehicleFactory();
 	UpdateAIRepairs();
 
-	if (!UnitHelper::BuildingConstructed(1, map_id::mapRareOreMine) &&
+	//Note: This attack is meant for after rare ore mine is destroyed, however to keep
+	//      gaming the scenario down a little, destroying the command center or struct factor also trigger attack.
+	if ((!UnitHelper::BuildingConstructed(1, map_id::mapRareOreMine) || 
+		!UnitHelper::BuildingConstructed(1, map_id::mapCommandCenter) || 
+		!UnitHelper::BuildingConstructed(1, map_id::mapStructureFactory)) &&
 		!scriptGlobal.TrigRareMineDestroyed.HasFired(1))
 	{
 		scriptGlobal.TrigRareMineDestroyed.Enable();
@@ -170,8 +162,19 @@ void AIProc()
 
 void InitializeVolcano(LOCATION lavaFlowStartLoc)
 {
-	//scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, 1500 * 100, "VolcanoErupts");
-	scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, 10, "VolcanoErupts");
+	int marksToErupt = 1500;
+
+	if (Player[0].Difficulty() == 0)
+	{
+		marksToErupt += 100;
+	}
+	else if (Player[0].Difficulty() == 1)
+	{
+		marksToErupt += 25;
+	}
+
+	scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, marksToErupt * 100, "VolcanoErupts");
+	//scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, 10, "VolcanoErupts");
 
 	MapHelper::SetLavaPossibleAllSlowCells(MAP_RECT(
 		LOCATION(0, 0), LOCATION(GameMapEx::GetMapWidth(), GameMapEx::GetMapHeight())));
@@ -397,18 +400,29 @@ void CheckOnTriggeringBaseReinforcements()
 bool CheckIfGameFailed()
 {
 	Player[0].resetChecks();
+
 	if (Player[0].Workers() < 8)
 	{
 		return true;
 	}
-	if (Player[0].Scientists() < 3)
+	else if (Player[0].Scientists() < 3)
 	{
 		return true;
 	}
-	if (!Player[0].canBuildSpace())
+	else if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapCommandCenter))
+	{
+	    return true;
+	}
+	else if (!Player[0].canBuildSpace())
 	{
 		return true;
 	}
+	// Technology 10401 = Phoenix Module.
+	else if (!Player[0].HasTechnology(10401) && !Player[0].canDoResearch(10401))
+	{
+		return true;
+	}
+
 	//if (!Player[0].canAccumulateOre())
 	//{
 	//	return true;
@@ -417,23 +431,14 @@ bool CheckIfGameFailed()
 	//{
 	//	return true;
 	//}
-	//10401 = Phoenix Module.
-	if (!Player[0].HasTechnology(10401) && !Player[0].canDoResearch(10401))
-	{
-		return true;
-	}
+	
 
-	/*if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapCommandCenter))
-	{
-	return true;
-	}
-
-	if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapStructureFactory))
-	{
-	if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapSpaceport))
-	{
-	return true;
-	}*/
+	//if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapStructureFactory))
+	//{
+	//if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapSpaceport))
+	//{
+	//return true;
+	//}
 
 	//TODO: Check if Phonix module not researched. If not, and no AdvLab, fail game.
 	//if (!hasBuildingOrKitAvailable(0, mapAdvancedLab))
@@ -527,21 +532,3 @@ Export void AddRepairConVec()
 * function for triggers that don't want or need any special callback function.
 */
 Export void NoResponseToTrigger() { }
-
-
-
-//NOTE: Calling SetRect on a fightGroup automatically sets group to DoGuardRect. Calling DoGuardRect clears the currently SetRect.
-//saveData.BaseDefenseFightGroup.DoGuardRect();
-
-
-//enum class Direction : int
-//{
-//	East = UnitDirection::East,
-//	SouthEast = UnitDirection::SouthEast,
-//	South = UnitDirection::South,
-//	SouthWest = UnitDirection::SouthWest,
-//	West = UnitDirection::West,
-//	NorthWest = UnitDirection::NorthWest,
-//	North = UnitDirection::North,
-//	NorthEast = UnitDirection::NorthEast
-//};
