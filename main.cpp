@@ -12,7 +12,7 @@
 
 #include <vector>
 
-ExportLevelDetails("Rising From the Ashes", "Ashes.map", "MULTITEKNOLAVAWALLS.TXT", MissionTypes::Colony, 2)
+ExportLevelDetails("Rising From the Ashes", "Ashes.map", "multitekNoLavaWalls.txt", MissionTypes::Colony, 2)
 
 // Declaring Classes
 UnitHelper::VehicleBuilder vehicleBuilderAI;
