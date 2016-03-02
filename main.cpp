@@ -23,7 +23,7 @@ ScriptGlobal scriptGlobal;
 ExportSaveLoadData(scriptGlobal);
 
 std::vector<map_id> structsToRepair { map_id::mapStructureFactory, map_id::mapVehicleFactory, 
-    map_id::mapAgridome, map_id::mapTokamak, map_id::mapCommandCenter, 
+	map_id::mapAgridome, map_id::mapTokamak, map_id::mapCommandCenter, 
 	map_id::mapRareOreSmelter, map_id::mapCommonOreSmelter, map_id::mapCommonStorage, 
 	map_id::mapRareStorage, map_id::mapRareOreMine, map_id::mapCommonOreMine, 
 	map_id::mapUniversity, map_id::mapNursery, map_id::mapRobotCommand, 
