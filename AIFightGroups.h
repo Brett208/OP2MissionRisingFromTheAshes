@@ -17,7 +17,9 @@ namespace AIFightGroups
 	class AIFightGroupMaker
 	{
 	public:
-		void SetupBaseDefenseFightGroup(FightGroup &fightGroup);
+		map_id AIFightGroupMaker::GetAttackTarget(int playerNumber);
+		LOCATION GetRandSouthernVehicleStartLoc();
+		void AIFightGroupMaker::SetupBaseDefenseFightGroup(FightGroup &fightGroup);
 		void AIFightGroupMaker::CreateRareOreMineAttack();
 		void AIFightGroupMaker::CreateSpaceportAttack();
 		void AIFightGroupMaker::CreatePhoenixModuleAttack();
@@ -41,8 +43,7 @@ namespace AIFightGroups
 		void AIFightGroupMaker::CreateEndMixedAttack(LOCATION startLoc);
 		void AIFightGroupMaker::CreateEndScorpAttack(LOCATION startLoc);
 		void AIFightGroupMaker::CreateEndRpgAttack(LOCATION startLoc);
-	};
 
-    LOCATION GetRandSouthernVehicleStartLoc();
-    
+		void AIFightGroupMaker::addToTargetVectorIfBuildingExists(std::vector<map_id> &targets, int playerNumber, map_id mapID);
+	};
 }

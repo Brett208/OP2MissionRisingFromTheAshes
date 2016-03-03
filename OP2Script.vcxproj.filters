@@ -15,10 +15,6 @@
     <Filter Include="OP2Helper">
       <UniqueIdentifier>{cd0c1a3f-c97a-4052-9159-3f549535c109}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{92c736f5-5484-42b6-a41f-452c67386591}</UniqueIdentifier>
-      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
-    </Filter>
     <Filter Include="OP2Helper\Source">
       <UniqueIdentifier>{8ec2bab8-e6ab-4947-ba17-d3a9ab936595}</UniqueIdentifier>
     </Filter>
@@ -27,6 +23,15 @@
     </Filter>
     <Filter Include="Odasl">
       <UniqueIdentifier>{f46aea99-87fa-4bae-950d-ecd1f527e599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HFL">
+      <UniqueIdentifier>{c2d1dbb5-5534-49ef-83a6-b7d9db8ecb05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HFL\Header Files">
+      <UniqueIdentifier>{1b6ebcff-4d21-40f5-9ebd-cd606275f99d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HFL\Source Files">
+      <UniqueIdentifier>{af7ce49e-6993-48c1-9dd6-1729992aa407}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,39 +45,6 @@
       <Filter>OP2Helper\Source</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\GameMapEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\HFLMain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\PaneButton.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\PaneGFXSurface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\PaneReport.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\PlayerEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\StdPanes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\TethysGameEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\TriggerEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\UnitEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="HFL\Source\UnitInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Disasters.cpp">
@@ -104,6 +76,39 @@
     </ClCompile>
     <ClCompile Include="MapHelper.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\HFLMain.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\PaneButton.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\PaneGFXSurface.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\PaneReport.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\PlayerEx.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\TriggerEx.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\UnitEx.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\UnitInfo.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\GameMapEx.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\TethysGameEx.cpp">
+      <Filter>HFL\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HFL\Source\StdPanes.cpp">
+      <Filter>HFL\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,42 +172,6 @@
     <ClInclude Include="Outpost2DLL\TethysGame.h">
       <Filter>Outpost2DLL</Filter>
     </ClInclude>
-    <ClInclude Include="HFL\Source\GameMapEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\HFL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\HFLTypes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\PaneButton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\PaneGFXSurface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\PaneReport.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\PlayerEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\StdPanes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\TethysGameEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\TriggerEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\UnitEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HFL\Source\UnitInfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Disasters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -233,6 +202,42 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HFL\Source\UnitEx.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\GameMapEx.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\HFL.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\HFLTypes.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\PaneButton.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\PaneGFXSurface.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\PaneReport.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\TethysGameEx.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\TriggerEx.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\UnitInfo.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\PlayerEx.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HFL\Source\StdPanes.h">
+      <Filter>HFL\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Readme.txt" />
@@ -258,8 +263,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <_EmbedManagedResourceFile Include="briefing.rtf">
-      <Filter>Resource Files</Filter>
-    </_EmbedManagedResourceFile>
+    <_EmbedManagedResourceFile Include="briefing.rtf" />
   </ItemGroup>
 </Project>

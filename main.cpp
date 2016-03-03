@@ -22,11 +22,11 @@ ScriptGlobal scriptGlobal;
 // Auto generate GetSaveRegions export
 ExportSaveLoadData(scriptGlobal);
 
-std::vector<map_id> structsToRepair { map_id::mapStructureFactory, map_id::mapVehicleFactory, 
-	map_id::mapAgridome, map_id::mapTokamak, map_id::mapCommandCenter, 
-	map_id::mapRareOreSmelter, map_id::mapCommonOreSmelter, map_id::mapCommonStorage, 
-	map_id::mapRareStorage, map_id::mapRareOreMine, map_id::mapCommonOreMine, 
-	map_id::mapUniversity, map_id::mapNursery, map_id::mapRobotCommand, 
+
+std::vector<map_id> aiBuildingRepairOrder{ map_id::mapCommandCenter, map_id::mapStructureFactory,
+	map_id::mapVehicleFactory, map_id::mapTokamak, map_id::mapRareOreMine, map_id::mapCommonOreMine,
+	map_id::mapRareOreSmelter, map_id::mapCommonOreSmelter,map_id::mapAgridome,  map_id::mapCommonStorage,
+	map_id::mapRareStorage,  map_id::mapUniversity, map_id::mapNursery, map_id::mapRobotCommand,
 	map_id::mapResidence, map_id::mapGuardPost };
 
 LOCATION volcanoEruptionLoc = LOCATION(50 + X_, 125 + Y_);
@@ -263,7 +263,7 @@ void SetRepairOrderIfRepairVehicleIdle(UnitEx &repairVehicle)
 	if (repairVehicle.GetCurAction() == ActionType::moDone ||
 		repairVehicle.GetCurAction() == ActionType::moInvalid)
 	{
-		AIHelper::SearchForBuildingToRepair(repairVehicle, 1, 100, structsToRepair);
+		AIHelper::SearchForBuildingToRepair(repairVehicle, 1, 100, aiBuildingRepairOrder);
 	}
 }
 
@@ -501,7 +501,7 @@ Export void InitializeRandomDisaster()
 
 Export void AddRepairConVec()
 {
-	LOCATION startLoc = AIFightGroups::GetRandSouthernVehicleStartLoc();
+	LOCATION startLoc = fightGroupMaker.GetRandSouthernVehicleStartLoc();
 
 	UnitEx repairConvec;
 	TethysGame::CreateUnit(repairConvec, map_id::mapConVec, startLoc, 1, map_id::mapNone, UnitDirection::North);
