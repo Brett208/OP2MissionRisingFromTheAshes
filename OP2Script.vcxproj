@@ -112,7 +112,6 @@ copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost
     <ClCompile Include="UnitHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseData.h" />
     <ClInclude Include="Disasters.h" />
     <ClInclude Include="AIHelper.h" />
     <ClInclude Include="PlayList.h" />

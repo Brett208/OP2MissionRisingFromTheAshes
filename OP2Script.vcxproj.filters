@@ -139,9 +139,6 @@
     <ClInclude Include="OP2Helper\Lava.h">
       <Filter>OP2Helper\Header</Filter>
     </ClInclude>
-    <ClInclude Include="BaseData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Outpost2DLL\Enumerators.h">
       <Filter>Outpost2DLL</Filter>
     </ClInclude>
