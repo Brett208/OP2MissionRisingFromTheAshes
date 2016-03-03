@@ -10,14 +10,14 @@
 #include "OP2Helper\OP2Helper.h"
 #include "Outpost2DLL\Outpost2DLL.h"
 
-#include <vector>
+#include <vector> 
 
 ExportLevelDetails("Rising From the Ashes", "Ashes.map", "multitekNoLavaWalls.txt", MissionTypes::Colony, 2)
 
 // Declaring Classes
 UnitHelper::VehicleBuilder vehicleBuilderAI;
 AIFightGroups::AIFightGroupMaker fightGroupMaker;
-ScriptGlobal scriptGlobal;
+ScriptGlobal scriptGlobal; 
 
 // Auto generate GetSaveRegions export
 ExportSaveLoadData(scriptGlobal);

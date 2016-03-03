@@ -7,81 +7,109 @@
     </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="odasl">
+      <UniqueIdentifier>{48106541-0ca2-4f5d-aae6-4cb145597b9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HFL.h">
+    <ClInclude Include="PlayerBaseBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HFLTypes.h">
+    <ClInclude Include="PlayList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PaneButton.h">
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PaneGFXSurface.h">
+    <ClInclude Include="ScriptGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PaneReport.h">
+    <ClInclude Include="UnitHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerEx.h">
+    <ClInclude Include="AIFightGroups.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StdPanes.h">
+    <ClInclude Include="AIHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TethysGameEx.h">
+    <ClInclude Include="Disasters.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TriggerEx.h">
+    <ClInclude Include="MapHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UnitEx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitInfo.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="odasl\odasl.h">
+      <Filter>odasl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameMapEx.cpp">
+    <ClCompile Include="PlayList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HFLMain.cpp">
+    <ClCompile Include="SetupAIBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PaneButton.cpp">
+    <ClCompile Include="UnitHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PaneGFXSurface.cpp">
+    <ClCompile Include="AIFightGroups.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PaneReport.cpp">
+    <ClCompile Include="AIHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerEx.cpp">
+    <ClCompile Include="Briefing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StdPanes.cpp">
+    <ClCompile Include="Disasters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TethysGameEx.cpp">
+    <ClCompile Include="DllMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TriggerEx.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UnitEx.cpp">
+    <ClCompile Include="MapHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UnitInfo.cpp">
+    <ClCompile Include="PlayerBaseBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="odasl\odasl.cpp">
+      <Filter>odasl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Readme.txt" />
+    <Text Include="multitekNoLavaWalls.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test.rtf" />
+    <None Include="Ashes.map" />
+    <None Include="briefing.rtf" />
+    <None Include="odasl\odasl.def">
+      <Filter>odasl</Filter>
+    </None>
+    <None Include="odasl\build.bat">
+      <Filter>odasl</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="odasl\odasl.lib">
+      <Filter>odasl</Filter>
+    </Library>
   </ItemGroup>
 </Project>
