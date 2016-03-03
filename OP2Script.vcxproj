@@ -76,12 +76,12 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
-copy /Y "$(ProjectDir)Ashes.map" "..\..\..\..\GameDownload\Outpost2\trunk\Ashes.map"
-copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost2\trunk\multitekNoLavaWalls.txt"</Command>
+      <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
+rem copy /Y "$(ProjectDir)Ashes.map" "..\..\..\..\GameDownload\Outpost2\trunk\Ashes.map"
+rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost2\trunk\multitekNoLavaWalls.txt"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost 2 game directory in SVN</Message>
+      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost 2 game directory in SVN. NOTE: Remaked out by default.</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
