@@ -21,8 +21,6 @@ If you need help troubleshooting the compiled scenario or the source code, use t
 
 ** Bugs
 
- * If you load a saved version of the game and check the mission objectives, the game will crash.
-
  * If you launch the evacuation module you actually lose the scenario instead of winning.
 
  * If you destory the AI's Vehicle Factor and the AI's ConVec that builds new structures, 
@@ -32,4 +30,4 @@ If you need help troubleshooting the compiled scenario or the source code, use t
 
   * SirBomber - For making great tutorials that without I probably wouldn't have been able to learn the SDK.
   * Hooman - For providing technical help, especially for re-creating the Plymouth Starship II colony game. 
-    This provided a lot of insight on using the SDK.
+    This provided a lot of insight on using the SDK. Also, for solving the victory conditions/Saving bug.

@@ -3,7 +3,7 @@
 LOCATION getRandMapLoc()
 {
 	return LOCATION(
-		TethysGame::GetRand(64) + X_,
+		TethysGame::GetRand(GameMapEx::GetMapWidth()) + X_,
 		TethysGame::GetRand(GameMapEx::GetMapHeight()) + Y_);
 }
 
@@ -87,6 +87,7 @@ void CreateVortex()
 		false);
 }
 
+// Losely based on Blackbox's Plymouth Cold War disaster setup.
 void CreateRandomDisaster(const std::vector<LOCATION> &criticalBuildingLocations)
 {
 	//Set a disaster. This uses a weighted random. Picking a random number 0 to 100:

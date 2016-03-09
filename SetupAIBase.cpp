@@ -41,7 +41,7 @@ void SetupBuildGroup(Unit &earthworker, Unit &conVec, Unit &structFactory, Unit 
 	buildingGroup.RecordBuilding(LOCATION(15 + X_, 167 + Y_), map_id::mapGuardPost, map_id::mapESG);
 	buildingGroup.RecordBuilding(LOCATION(10 + X_, 167 + Y_), map_id::mapGuardPost, map_id::mapESG);
 	buildingGroup.RecordBuilding(LOCATION(27 + X_, 164 + Y_), map_id::mapGuardPost, map_id::mapESG);
-	buildingGroup.RecordBuilding(LOCATION(63 + X_, 169 + Y_), map_id::mapGuardPost, map_id::mapESG); //Far Right
+	buildingGroup.RecordBuilding(LOCATION(63 + X_, 169 + Y_), map_id::mapGuardPost, map_id::mapESG); //Far East Guard Post
 	buildingGroup.RecordBuilding(LOCATION(35 + X_, 163 + Y_), map_id::mapGuardPost, map_id::mapESG);
 	buildingGroup.RecordBuilding(LOCATION(44 + X_, 163 + Y_), map_id::mapGuardPost, map_id::mapESG);
 	buildingGroup.RecordBuilding(LOCATION(25 + X_, 191 + Y_), map_id::mapResidence, map_id::mapNone);
@@ -129,7 +129,7 @@ void BuildEnemyBase(UnitHelper::VehicleBuilder vehicleBuilderAI, LOCATION common
 	TethysGame::CreateUnit(commandCenter, map_id::mapCommandCenter, loc, 1, map_id::mapNone, UnitDirection::East);
 
 	Unit structFactory;
-	TethysGame::CreateUnit(structFactory, map_id::mapStructureFactory, LOCATION(30 + X_, 202 + Y_), 1, map_id::mapNone, UnitDirection::East);
+	TethysGame::CreateUnit(structFactory, map_id::mapStructureFactory, LOCATION(30 + X_, 202 + Y_), Player1, map_id::mapNone, UnitDirection::East);
 	/*unit.SetFactoryCargo(0, mapCommandCenter, mapNone);*/
 
 	Unit tokamak = AddNewBuildingToVector(buildingVector, map_id::mapTokamak, LOCATION(4 + X_, 177 + Y_));
@@ -162,7 +162,7 @@ void BuildEnemyBase(UnitHelper::VehicleBuilder vehicleBuilderAI, LOCATION common
 	CreateTubeOrWallLine(32 + X_, 198 + Y_, 19 + X_, 198 + Y_, map_id::mapTube);
 
 	//Needs UnitEx initialization for repair Convec
-	TethysGame::CreateUnit(scriptGlobal.AIRepairConvec, map_id::mapConVec, LOCATION(22 + X_, 200 + Y_), 1, map_id::mapNone, UnitDirection::East);
+	TethysGame::CreateUnit(scriptGlobal.AIRepairConvec, map_id::mapConVec, LOCATION(22 + X_, 200 + Y_), Player1, map_id::mapNone, UnitDirection::East);
 	scriptGlobal.AIRepairConvec.DoSetLights(true);
 
 	Unit buildingConvec;

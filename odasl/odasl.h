@@ -21,10 +21,8 @@ struct wplOptions
 };
 
 #ifdef BUILDING_ODASL
-//#define ODASL_API(rt) rt __cdecl
 #define ODASL_API(rt) __declspec(dllexport) rt __cdecl
 #else
-//#define ODASL_API(rt) rt __cdecl
 #define ODASL_API(rt) __declspec(dllimport) rt __cdecl
 #endif // BUILDING_ODASL
 

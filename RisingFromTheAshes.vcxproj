@@ -95,6 +95,7 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -116,6 +117,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -141,6 +143,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -166,6 +169,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -190,6 +194,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
   <ItemGroup>
     <ClInclude Include="AIFightGroups.h" />
     <ClInclude Include="AIHelper.h" />
+    <ClInclude Include="Briefing.h" />
     <ClInclude Include="Disasters.h" />
     <ClInclude Include="MapHelper.h" />
     <ClInclude Include="odasl\odasl.h" />
@@ -207,7 +212,6 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MapHelper.cpp" />
-    <ClCompile Include="odasl\odasl.cpp" />
     <ClCompile Include="PlayerBaseBuilder.cpp" />
     <ClCompile Include="PlayList.cpp" />
     <ClCompile Include="SetupAIBase.cpp" />
@@ -218,17 +222,14 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
     <Text Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Ashes.map" />
     <None Include="briefing.rtf" />
-    <None Include="odasl\build.bat" />
-    <None Include="odasl\odasl.def" />
-    <None Include="Test.rtf" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="odasl\odasl.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RisingFromTheAshes.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

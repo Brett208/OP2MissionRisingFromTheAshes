@@ -24,9 +24,6 @@
     <ClInclude Include="PlayList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ScriptGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -47,6 +44,12 @@
     </ClInclude>
     <ClInclude Include="odasl\odasl.h">
       <Filter>odasl</Filter>
+    </ClInclude>
+    <ClInclude Include="Briefing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,33 +86,23 @@
     <ClCompile Include="PlayerBaseBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="odasl\odasl.cpp">
-      <Filter>odasl</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Readme.txt" />
     <Text Include="multitekNoLavaWalls.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Resource.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Test.rtf" />
     <None Include="Ashes.map" />
     <None Include="briefing.rtf" />
-    <None Include="odasl\odasl.def">
-      <Filter>odasl</Filter>
-    </None>
-    <None Include="odasl\build.bat">
-      <Filter>odasl</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="odasl\odasl.lib">
       <Filter>odasl</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RisingFromTheAshes.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

@@ -8,20 +8,17 @@
 #include "ScriptGlobal.h"
 
 #include "OP2Helper\OP2Helper.h"
-#include "Outpost2DLL\Outpost2DLL.h"
+#include "Outpost2DLL\Outpost2DLL.h" 
 
 #include <vector> 
-
-ExportLevelDetails("Rising From the Ashes", "Ashes.map", "multitekNoLavaWalls.txt", MissionTypes::Colony, 2)
 
 // Declaring Classes
 UnitHelper::VehicleBuilder vehicleBuilderAI;
 AIFightGroups::AIFightGroupMaker fightGroupMaker;
-ScriptGlobal scriptGlobal; 
+ScriptGlobal scriptGlobal;
 
-// Auto generate GetSaveRegions export
+ExportLevelDetails("Colony Builder - Eden, Rising From the Ashes", "Ashes.map", "multitekNoLavaWalls.txt", MissionTypes::Colony, 2)
 ExportSaveLoadData(scriptGlobal);
-
 
 std::vector<map_id> aiBuildingRepairOrder{ map_id::mapCommandCenter, map_id::mapStructureFactory,
 	map_id::mapVehicleFactory, map_id::mapTokamak, map_id::mapRareOreMine, map_id::mapCommonOreMine,
@@ -58,7 +55,7 @@ void RetreatAINonCombatantsSouth(int southernYCoordOfEnemyCombatant);
 int InitProc()
 {
 	HFLInit();
-
+	
 	ShowBriefing();
 
 	InitializeVolcano(volcanoEruptionLoc);
@@ -105,12 +102,9 @@ int InitProc()
 
 	TethysGame::SetMusicPlayList(5, 1, PlayList);
 
-	return 1; // return 1 if OK; 0 on failure
+	return 1;
 }
 
-/**
-* Called once every game cycle.
-*/
 void AIProc()
 {
 	//Ensure random stealth attacks turn on lights when attacked.
@@ -121,7 +115,7 @@ void AIProc()
 	}
 
 	//NOTE: When the VehicleBuilder class is instantiated after a game is loaded, it defaults to player 0.
-	if (vehicleBuilderAI.GetPlayer() != 1)
+	if (vehicleBuilderAI.GetPlayer() != Player1)
 	{
 		InitializeAIHelperClasses();
 	}
@@ -137,19 +131,19 @@ void AIProc()
 	if ((!UnitHelper::BuildingConstructed(1, map_id::mapRareOreMine) || 
 		!UnitHelper::BuildingConstructed(1, map_id::mapCommandCenter) || 
 		!UnitHelper::BuildingConstructed(1, map_id::mapStructureFactory)) &&
-		!scriptGlobal.TrigRareMineDestroyed.HasFired(1))
+		!scriptGlobal.TrigRareMineDestroyed.HasFired(Player1))
 	{
 		scriptGlobal.TrigRareMineDestroyed.Enable();
 	}
 
-	if (UnitHelper::BuildingConstructed(0, mapSpaceport) && 
-		!scriptGlobal.TrigSpaceportBuilt.HasFired(0))
+	if (UnitHelper::BuildingConstructed(Player0, mapSpaceport) && 
+		!scriptGlobal.TrigSpaceportBuilt.HasFired(Player0))
 	{
 		scriptGlobal.TrigSpaceportBuilt.Enable();
 	}
 
 	if (Player[0].HasTechnology(10401) && 
-		!scriptGlobal.TrigPhoenixModuleResearched.HasFired(0))
+		!scriptGlobal.TrigPhoenixModuleResearched.HasFired(Player0))
 	{
 		scriptGlobal.TrigPhoenixModuleResearched.Enable();
 	}
@@ -162,15 +156,15 @@ void AIProc()
 
 void InitializeVolcano(LOCATION lavaFlowStartLoc)
 {
-	int marksToErupt = 1500;
+	int marksToErupt = 1400;
 
-	if (Player[0].Difficulty() == 0)
+	if (Player[0].Difficulty() == PlayerDifficulty::DiffEasy)
+	{
+		marksToErupt += 200;
+	}
+	else if (Player[0].Difficulty() == PlayerDifficulty::DiffNormal)
 	{
 		marksToErupt += 100;
-	}
-	else if (Player[0].Difficulty() == 1)
-	{
-		marksToErupt += 25;
 	}
 
 	scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, marksToErupt * 100, "VolcanoErupts");
@@ -187,7 +181,7 @@ void InitializeVolcano(LOCATION lavaFlowStartLoc)
 void CheckIfAIVehicleFactoryDestroyed()
 {
 	UnitEx structure;
-	PlayerBuildingEnum findStructures(1, map_id::mapVehicleFactory);
+	PlayerBuildingEnum findStructures(Player1, map_id::mapVehicleFactory);
 
 	scriptGlobal.AIVehicleFactoryDestoryed = true;
 	while (findStructures.GetNext(structure))
@@ -203,14 +197,14 @@ void CheckIfAIVehicleFactoryDestroyed()
 void UpdateDestroyedAIVehicleFactory()
 {
 	UnitEx structure;
-	PlayerBuildingEnum findStructures(1, map_id::mapVehicleFactory);
+	PlayerBuildingEnum findStructures(Player1, map_id::mapVehicleFactory);
 
 	while (findStructures.GetNext(structure))
 	{
 		if (scriptGlobal.AIRepairConvec.GetCurAction() == ActionType::moDone ||
 			scriptGlobal.AIRepairConvec.GetCurAction() == ActionType::moInvalid)
 		{
-			AIHelper::SearchForBuildingToRepair(scriptGlobal.AIRepairConvec, 1, 1, map_id::mapVehicleFactory);
+			AIHelper::SearchForBuildingToRepair(scriptGlobal.AIRepairConvec, Player1, 1, map_id::mapVehicleFactory);
 		}
 
 		if (structure.GetDamage() != 0)
@@ -240,7 +234,7 @@ void UpdateAIVehicleFactory()
 void RetreatAINonCombatantsSouth(int southernYCoordOfEnemyCombatant)
 {
 	UnitEx unit;
-	PlayerVehicleEnum vehicleEnum(1);
+	PlayerVehicleEnum vehicleEnum(Player1);
 
 	while (vehicleEnum.GetNext(unit))
 	{
@@ -272,12 +266,12 @@ void InitializeDisasterTrigger()
 	int disasterTimeMin = 2500;
 	int disasterTimeMax = 6500;
 
-	if (Player[0].Difficulty() == 1)
+	if (Player[0].Difficulty() == PlayerDifficulty::DiffNormal)
 	{
 		disasterTimeMin = 2000;
 		disasterTimeMax = 6000;
 	}
-	else if (Player[0].Difficulty() == 2)
+	else if (Player[0].Difficulty() == PlayerDifficulty::DiffHard)
 	{
 		disasterTimeMin = 1500;
 		disasterTimeMax = 5500;
@@ -291,12 +285,12 @@ void InitializeRandomAttackTrigger()
 	int attackTimeMin = 5000;
 	int attackTimeMax = 8000;
 
-	if (Player[0].Difficulty() == 1)
+	if (Player[0].Difficulty() == PlayerDifficulty::DiffNormal)
 	{
 		attackTimeMin = 3000;
 		attackTimeMax = 5500;
 	}
-	else if (Player[1].Difficulty() == 2)
+	else if (Player[1].Difficulty() == PlayerDifficulty::DiffHard)
 	{
 		attackTimeMin = 2000;
 		attackTimeMax = 4000;
@@ -307,7 +301,7 @@ void InitializeRandomAttackTrigger()
 
 void InitializeAIHelperClasses()
 {
-	vehicleBuilderAI.SetPlayer(1);
+	vehicleBuilderAI.SetPlayer(Player1);
 	fightGroupMaker.VehicleBuilderAI = vehicleBuilderAI;
 }
 
@@ -353,23 +347,23 @@ void CreateMineBeacons(LOCATION &aiCommonBeaconLoc, LOCATION &aiRareBeaconLoc)
 void InitializeVictoryConditions()
 {
 	// Evacuation Module
-	scriptGlobal.TrigVictoryColonists = CreateCountTrigger(true, true, 0, mapEvacuationModule, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
+	scriptGlobal.TrigVictoryColonists = CreateCountTrigger(true, true, Player0, mapEvacuationModule, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
 	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryColonists, "Evacuate 200 colonists to the starship.");
 
 	// Rare Metals Cargo
-	scriptGlobal.TrigVictoryRareMetals = CreateCountTrigger(true, true, 0, mapRareMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
+	scriptGlobal.TrigVictoryRareMetals = CreateCountTrigger(true, true, Player0, mapRareMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
 	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryRareMetals, "Evacuate 10000 units of Rare Metals to the starship.");
 
 	// Common Metals Cargo
-	scriptGlobal.TrigVictoryCommonMetals = CreateCountTrigger(true, true, 0, mapCommonMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
+	scriptGlobal.TrigVictoryCommonMetals = CreateCountTrigger(true, true, Player0, mapCommonMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
 	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryCommonMetals, "Evacuate 10000 units of Common Metals to the starship.");
 
 	// Food Cargo
-	scriptGlobal.TrigVictoryFood = CreateCountTrigger(true, true, 0, mapFoodCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
+	scriptGlobal.TrigVictoryFood = CreateCountTrigger(true, true, Player0, mapFoodCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
 	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryFood, "Evacuate 10000 units of food to the starship.");
 
 	// Skydock
-	scriptGlobal.TrigVictorySkydock = CreateCountTrigger(true, true, 0, mapSkydock, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
+	scriptGlobal.TrigVictorySkydock = CreateCountTrigger(true, true, Player0, mapSkydock, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
 	CreateVictoryCondition(true, false, scriptGlobal.TrigVictorySkydock, "Launch the Skydock.");
 }
 
@@ -409,7 +403,7 @@ bool CheckIfGameFailed()
 	{
 		return true;
 	}
-	else if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapCommandCenter))
+	else if (!UnitHelper::BuildingOrKitAvailable(Player0, map_id::mapCommandCenter))
 	{
 	    return true;
 	}
@@ -422,30 +416,6 @@ bool CheckIfGameFailed()
 	{
 		return true;
 	}
-
-	//if (!Player[0].canAccumulateOre())
-	//{
-	//	return true;
-	//}
-	//if (!Player[0].canAccumulateRareOre())
-	//{
-	//	return true;
-	//}
-	
-
-	//if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapStructureFactory))
-	//{
-	//if (!UnitHelper::BuildingOrKitAvailable(0, map_id::mapSpaceport))
-	//{
-	//return true;
-	//}
-
-	//TODO: Check if Phonix module not researched. If not, and no AdvLab, fail game.
-	//if (!hasBuildingOrKitAvailable(0, mapAdvancedLab))
-	//{
-	//	return true;
-	//}
-	//}
 
 	return false;
 }
@@ -460,11 +430,11 @@ Export void SendRandomFightGroup()
 {
 	AIFightGroups::FightGroupLevel fightGroupLevel = AIFightGroups::FightGroupLevel::Initial;
 
-	if (scriptGlobal.TrigPhoenixModuleResearched.HasFired(0))
+	if (scriptGlobal.TrigPhoenixModuleResearched.HasFired(Player0))
 	{
 		fightGroupLevel = AIFightGroups::FightGroupLevel::End;
 	}
-	else if (scriptGlobal.TrigSpaceportBuilt.HasFired(0))
+	else if (scriptGlobal.TrigSpaceportBuilt.HasFired(Player0))
 	{
 		fightGroupLevel = AIFightGroups::FightGroupLevel::Middle;
 	}
@@ -491,9 +461,9 @@ Export void InitializeRandomDisaster()
 {
 	std::vector<LOCATION> criticalBuildingLocations;
 
-	UnitHelper::FindBuildingLocations(criticalBuildingLocations, 0,
+	UnitHelper::FindBuildingLocations(criticalBuildingLocations, Player0,
 		std::vector<map_id> { map_id::mapCommandCenter, map_id::mapStructureFactory, map_id::mapCommonOreSmelter });
-	UnitHelper::FindBuildingLocations(criticalBuildingLocations, 1,
+	UnitHelper::FindBuildingLocations(criticalBuildingLocations, Player1,
 		std::vector<map_id> {map_id::mapCommandCenter, map_id::mapStructureFactory});
 
 	CreateRandomDisaster(criticalBuildingLocations);
@@ -504,7 +474,7 @@ Export void AddRepairConVec()
 	LOCATION startLoc = fightGroupMaker.GetRandSouthernVehicleStartLoc();
 
 	UnitEx repairConvec;
-	TethysGame::CreateUnit(repairConvec, map_id::mapConVec, startLoc, 1, map_id::mapNone, UnitDirection::North);
+	TethysGame::CreateUnit(repairConvec, map_id::mapConVec, startLoc, Player1, map_id::mapNone, UnitDirection::North);
 	repairConvec.DoSetLights(true);
 
 	scriptGlobal.AIRepairConvec = repairConvec;
@@ -514,10 +484,10 @@ Export void AddRepairConVec()
 	vehicleBuilderAI.CreateVechLightsOn(roboMiner, map_id::mapRoboMiner, startLoc + LOCATION(1, 0), map_id::mapNone);
 	scriptGlobal.ColonyExpansionBuildGroup.TakeUnit(roboMiner);
 
-	std::vector<Unit> combatUnits;
-	vehicleBuilderAI.CreateHorizLineOfVehicles(combatUnits, startLoc + LOCATION(2, 0), 1, map_id::mapLynx, map_id::mapMicrowave, 3);
+	std::vector<Unit> units;
+	vehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(2, 0), UnitDirection::East, 1, map_id::mapLynx, map_id::mapMicrowave, 3);
 
-	for (Unit unit : combatUnits)
+	for (Unit unit : units)
 	{
 		scriptGlobal.BaseDefenseFightGroup.TakeUnit(unit);
 	}

@@ -42,6 +42,33 @@ namespace MapHelper
 		GameMap::SetTile(LOCATION(location.x + 1, location.y), 0x494);
 	}
 
+	LOCATION CreateBeaconInRegion(MAP_RECT rect, BeaconTypes commonRareType, Yield oreBar, Variant barVariant)
+	{
+		LOCATION loc = rect.RandPt();
+		TethysGame::CreateBeacon(map_id::mapMiningBeacon, loc.x, loc.y, commonRareType, oreBar, barVariant);
+
+		return loc;
+	}
+
+	LOCATION CreateBeaconFromRandomLocs(const std::vector<LOCATION> &possibleLocs,
+		BeaconTypes commonRareType, Yield oreBar, Variant barVariant)
+	{
+		LOCATION loc = possibleLocs[TethysGame::GetRand(possibleLocs.size())];
+
+		TethysGame::CreateBeacon(map_id::mapMiningBeacon, loc.x, loc.y,
+			commonRareType, oreBar, barVariant);
+
+		return loc;
+	}
+
+	LOCATION CreateMagmaWellInRegion(MAP_RECT mapRect)
+	{
+		LOCATION loc = mapRect.RandPt();
+		TethysGame::CreateBeacon(map_id::mapMagmaVent, loc.x, loc.y, -1, -1, -1);
+
+		return loc;
+	}
+
 	void CreateFumaroleInRegion(MAP_RECT mapRect)
 	{
 		LOCATION fumaroleLoc = mapRect.RandPt();

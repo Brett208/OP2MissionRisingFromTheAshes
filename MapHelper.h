@@ -17,6 +17,13 @@ namespace MapHelper
 	// Note: Does not perform error checking to ensure fumarole isn't placed in an inapropriate area.
 	void CreateFumaroleInRegion(MAP_RECT mapRect);
 
+	LOCATION CreateBeaconFromRandomLocs(const std::vector<LOCATION> &possibleLocs,
+		BeaconTypes commonRareType, Yield oreBar, Variant barVariant);
+
+	LOCATION CreateBeaconInRegion(MAP_RECT rect, BeaconTypes commonRareType, Yield oreBar, Variant barVariant);
+
+	LOCATION CreateMagmaWellInRegion(MAP_RECT mapRect);
+
 	// Note: Does not perform error checking to ensure fumarole isn't placed in an inapropriate area.
 	void CreateFumarolesFromRandomLocs(size_t numberOfFumaroles, std::vector<LOCATION> locations);
 }

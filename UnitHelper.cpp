@@ -6,7 +6,7 @@ namespace UnitHelper
 	{
 		if (playerNumber > 6)
 		{
-			throw "Maximum of 6 players allowed.";//std::invalid_argument();
+			throw "Maximum of 6 players allowed.";
 		}
 
 		playerNumber = player;
@@ -16,12 +16,12 @@ namespace UnitHelper
 	{
 		return playerNumber;
 	}
-	
+
 	void VehicleBuilder::SetVehicleDirection(UnitDirection direction)
 	{
 		unitDirection = direction;
 	}
-	
+
 	UnitDirection VehicleBuilder::GetVehicleDirection()
 	{
 		return unitDirection;
@@ -69,39 +69,132 @@ namespace UnitHelper
 		fightGroup.DoAttackEnemy();
 	}
 
-	void VehicleBuilder::CreateHorizLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, int vehicleSpacing, const map_id vehicleType, const map_id cargo, int vehicleCount)
+	std::function<LOCATION(LOCATION, int)> VehicleBuilder::getLineDirectionIterator(UnitDirection lineDirection)
 	{
+		switch (lineDirection)
+		{
+		case UnitDirection::South:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(0, spacing); };
+
+		case UnitDirection::SouthWest:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(-spacing, spacing); };
+
+		case UnitDirection::West:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(-spacing, 0); };
+
+		case UnitDirection::NorthWest:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(-spacing, -spacing); };
+
+		case UnitDirection::North:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(0, -spacing); };
+
+		case UnitDirection::NorthEast:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(spacing, -spacing); };
+
+		case UnitDirection::East:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(spacing, 0); };
+
+		case UnitDirection::SouthEast:
+			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(spacing, spacing); };
+		}
+
+		throw "Invalid UnitDirection passed into Function.";
+	}
+
+	void VehicleBuilder::CreateLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, UnitDirection lineDirection,
+		int vehicleSpacing, const map_id vehicleType, const map_id cargo, int vehicleCount)
+	{
+		std::function<LOCATION(LOCATION, int)> directionIterator = getLineDirectionIterator(lineDirection);
+
 		Unit unit;
+		LOCATION currentLoc = startLoc;
 		for (int i = 0; i < vehicleCount; ++i)
 		{
-			LOCATION loc = startLoc + LOCATION(i * vehicleSpacing, 0);
-			CreateVechLightsOn(unit, vehicleType, loc, cargo);
+			CreateVechLightsOn(unit, vehicleType, currentLoc, cargo);
 			units.push_back(unit);
+
+			currentLoc = directionIterator(currentLoc, vehicleSpacing);
 		}
 	}
 
-	void VehicleBuilder::CreateHorizLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, int vehicleSpacing, map_id vehicleType, const std::vector<map_id> &cargoVector)
+	void VehicleBuilder::CreateLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, UnitDirection lineDirection,
+		int vehicleSpacing, map_id vehicleType, const std::vector<map_id> &cargoVector)
 	{
+		std::function<LOCATION(LOCATION, int)> directionIterator = getLineDirectionIterator(lineDirection);
+
 		Unit unit;
-		LOCATION loc;
+		LOCATION currentLoc = startLoc;
 
 		for (size_t i = 0; i < cargoVector.size(); ++i)
 		{
-			loc = startLoc + LOCATION(i * vehicleSpacing, 0);
-			CreateVechLightsOn(unit, vehicleType, loc, cargoVector[i]);
+			CreateVechLightsOn(unit, vehicleType, currentLoc, cargoVector[i]);
 			units.push_back(unit);
+
+			currentLoc = directionIterator(currentLoc, vehicleSpacing);
 		}
 	}
 
-	void VehicleBuilder::CreateHorizLineOfVehicles(
-		std::vector<Unit> &units, LOCATION startLoc, int vehicleSpacing, const std::vector<map_id> &vehicleTypes)
+	void VehicleBuilder::CreateLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, UnitDirection lineDirection,
+		int vehicleSpacing, const std::vector<map_id> &vehicleTypes)
 	{
+		std::function<LOCATION(LOCATION, int)> directionIterator = getLineDirectionIterator(lineDirection);
+
 		Unit unit;
+		LOCATION currentLoc = startLoc;
 		for (size_t i = 0; i < vehicleTypes.size(); ++i)
 		{
-			LOCATION loc = startLoc + LOCATION(i * vehicleSpacing, 0);
-			CreateVechLightsOn(unit, vehicleTypes[i], loc, map_id::mapNone);
+			CreateVechLightsOn(unit, vehicleTypes[i], currentLoc, map_id::mapNone);
 			units.push_back(unit);
+
+			currentLoc = directionIterator(currentLoc, vehicleSpacing);
+		}
+	}
+
+	void VehicleBuilder::CreateLineOfTrucksWithCargo(std::vector<Unit> &units, LOCATION startLoc, UnitDirection lineDirection,
+		int vehicleSpacing, const std::vector<Truck_Cargo> &cargoTypes)
+	{
+		std::function<LOCATION(LOCATION, int)> directionIterator = getLineDirectionIterator(lineDirection);
+
+		Unit unit;
+		LOCATION currentLoc = startLoc;
+		for (size_t i = 0; i < cargoTypes.size(); ++i)
+		{
+			CreateVechLightsOn(unit, map_id::mapCargoTruck, currentLoc, map_id::mapNone);
+			unit.SetTruckCargo(cargoTypes[i], 1000);
+			units.push_back(unit);
+
+			currentLoc = directionIterator(currentLoc, vehicleSpacing);
+		}
+	}
+
+	void VehicleBuilder::CauseRandomDamage(std::vector<Unit> &units, int percentChanceDamaged, int minDamage, int maxDamage)
+	{
+		if (maxDamage < minDamage)
+		{
+			throw "maxDamage must be greater than minDamage.";
+		}
+
+		if (percentChanceDamaged > 100 || percentChanceDamaged < 0)
+		{
+			throw "percentChanceDamaged must be between 0 and 100.";
+		}
+
+		for (Unit unit : units)
+		{
+			if (TethysGame::GetRand(100) <= percentChanceDamaged)
+			{
+				double percentOfMaxDamage = static_cast<double>(TethysGame::GetRand(100)) / static_cast<double>(100);
+				int damage = minDamage + static_cast<int>((percentOfMaxDamage * static_cast<double>((maxDamage - minDamage))));
+				unit.SetDamage(damage);
+			}
+		}
+	}
+
+	void VehicleBuilder::MoveRelativeAmount(std::vector<Unit> &units, LOCATION relativeMoveAmount)
+	{
+		for (Unit unit : units)
+		{
+			unit.DoMove(unit.Location() + relativeMoveAmount);
 		}
 	}
 
