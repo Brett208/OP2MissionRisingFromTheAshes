@@ -3,8 +3,8 @@
 LOCATION getRandMapLoc()
 {
 	return LOCATION(
-		TethysGame::GetRand(GameMapEx::GetMapWidth()) + X_,
-		TethysGame::GetRand(GameMapEx::GetMapHeight()) + Y_);
+		TethysGame::GetRand(64) + X_,
+		TethysGame::GetRand(256) + Y_);
 }
 
 double DistanceBetweenPoints(LOCATION loc1, LOCATION loc2)

@@ -89,6 +89,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalOptions>/verbose %(AdditionalOptions)</AdditionalOptions>
@@ -96,6 +97,7 @@
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <BaseAddress>0x11000000</BaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -111,6 +113,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalOptions>/verbose %(AdditionalOptions</AdditionalOptions>
@@ -118,6 +121,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <BaseAddress>0x11000000</BaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -135,6 +139,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -144,6 +149,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <BaseAddress>0x11000000</BaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -161,6 +167,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -170,6 +177,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       </AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <BaseAddress>0x11000000</BaseAddress>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"

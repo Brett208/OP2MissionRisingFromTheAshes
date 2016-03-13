@@ -86,7 +86,7 @@ namespace AIFightGroups
 			map_id::mapMicrowave, map_id::mapMicrowave, map_id::mapMicrowave, map_id::mapStickyfoam };
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapLynx, turrets);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 	void AIFightGroupMaker::CreateInitialStealthAttack(LOCATION startLoc)
@@ -96,7 +96,7 @@ namespace AIFightGroups
 		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapStarflare, map_id::mapStickyfoam, map_id::mapStarflare, map_id::mapRPG, map_id::mapRPG };
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapLynx, turrets);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 
 		scriptGlobal.PeriodicFightGroup.SetLights(false);
 	}
@@ -106,9 +106,9 @@ namespace AIFightGroups
 		std::vector<Unit> units;
 
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 6);
+		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 8);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 	void AIFightGroupMaker::CreateMiddleMixedAttack(LOCATION startLoc)
@@ -119,7 +119,7 @@ namespace AIFightGroups
 			map_id::mapStickyfoam, map_id::mapMicrowave, map_id::mapMicrowave, map_id::mapRPG,
 				map_id::mapEMP, map_id::mapEMP, map_id::mapStickyfoam});
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 
@@ -130,7 +130,7 @@ namespace AIFightGroups
 		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapSupernova, map_id::mapStickyfoam, map_id::mapSupernova, map_id::mapRPG, map_id::mapRPG, map_id::mapSupernova, map_id::mapEMP };
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapLynx, turrets);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 
 		scriptGlobal.PeriodicFightGroup.SetLights(false);
 	}
@@ -141,19 +141,9 @@ namespace AIFightGroups
 
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
+		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -2), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 8);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
-	}
-
-	void AIFightGroupMaker::CreateEndScorpAttack(LOCATION startLoc)
-	{
-		std::vector<Unit> units;
-
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 8);
-
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 	void AIFightGroupMaker::CreateEndRpgAttack(LOCATION startLoc)
@@ -161,18 +151,20 @@ namespace AIFightGroups
 		std::vector<Unit> units;
 
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapTiger, map_id::mapRPG, 12);
+		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapTiger, map_id::mapRPG, 12);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 	void AIFightGroupMaker::CreateEndMixedAttack(LOCATION startLoc)
 	{
 		std::vector<Unit> units;
 
-		std::vector<map_id> turrets{ map_id::mapStickyfoam, map_id::mapRPG, map_id::mapESG, map_id::mapEMP, map_id::mapRPG, map_id::mapEMP, map_id::mapESG };
+		std::vector<map_id> turrets { map_id::mapStickyfoam, map_id::mapRPG, map_id::mapESG, map_id::mapEMP, map_id::mapRPG, map_id::mapEMP, 
+			map_id::mapESG, map_id::mapEMP,  map_id::mapRPG, map_id::mapESG, map_id::mapEMP, map_id::mapMicrowave };
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapTiger, turrets);
 
-		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(0));
+		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
 
 	void AIFightGroupMaker::CreateInitialFightGroup(LOCATION startLoc)
@@ -221,7 +213,7 @@ namespace AIFightGroups
 			CreateEndRpgAttack(startLoc);
 			break;
 		case 1:
-			CreateEndScorpAttack(startLoc);
+			CreateEndMixedAttack(startLoc);
 			break;
 		case 2:
 			CreateEndMixedAttack(startLoc);

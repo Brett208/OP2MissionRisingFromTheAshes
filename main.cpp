@@ -83,7 +83,7 @@ int InitProc()
 
 	TethysGame::SetDaylightEverywhere(0);
 	TethysGame::SetDaylightMoves(1);
-	GameMap::SetInitialLightLevel(TethysGame::GetRand(GameMapEx::GetMapWidth()));
+	GameMap::SetInitialLightLevel(TethysGame::GetRand(64));
 
 	InitializeDisasterTrigger();
 	InitializeVictoryConditions();
@@ -100,7 +100,7 @@ int InitProc()
 	
 	scriptGlobal.TrigAIBaseReinforcement = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "AddRepairConVec");
 
-	TethysGame::SetMusicPlayList(5, 1, PlayList);
+	TethysGame::SetMusicPlayList(7, 1, PlayList);
 
 	return 1;
 }
@@ -128,9 +128,9 @@ void AIProc()
 
 	//Note: This attack is meant for after rare ore mine is destroyed, however to keep
 	//      gaming the scenario down a little, destroying the command center or struct factor also trigger attack.
-	if ((!UnitHelper::BuildingConstructed(1, map_id::mapRareOreMine) || 
-		!UnitHelper::BuildingConstructed(1, map_id::mapCommandCenter) || 
-		!UnitHelper::BuildingConstructed(1, map_id::mapStructureFactory)) &&
+	if ((!UnitHelper::BuildingConstructed(Player1, map_id::mapRareOreMine) || 
+		!UnitHelper::BuildingConstructed(Player1, map_id::mapCommandCenter) || 
+		!UnitHelper::BuildingConstructed(Player1, map_id::mapStructureFactory)) &&
 		!scriptGlobal.TrigRareMineDestroyed.HasFired(Player1))
 	{
 		scriptGlobal.TrigRareMineDestroyed.Enable();
@@ -156,22 +156,22 @@ void AIProc()
 
 void InitializeVolcano(LOCATION lavaFlowStartLoc)
 {
-	int marksToErupt = 1400;
+	int marksToErupt = 1350;
 
 	if (Player[0].Difficulty() == PlayerDifficulty::DiffEasy)
 	{
-		marksToErupt += 200;
+		marksToErupt += 250;
 	}
 	else if (Player[0].Difficulty() == PlayerDifficulty::DiffNormal)
 	{
-		marksToErupt += 100;
+		marksToErupt += 125;
 	}
 
 	scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, marksToErupt * 100, "VolcanoErupts");
 	//scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, 10, "VolcanoErupts");
 
 	MapHelper::SetLavaPossibleAllSlowCells(MAP_RECT(
-		LOCATION(0, 0), LOCATION(GameMapEx::GetMapWidth(), GameMapEx::GetMapHeight())));
+		LOCATION(0, 0), LOCATION(64, 256)));
 
 	MapHelper::SetLavaPossibleRegion(MAP_RECT(LOCATION(50 + X_, 125 + Y_), LOCATION(51 + X_, 130 + Y_)));
 
@@ -422,7 +422,7 @@ bool CheckIfGameFailed()
 
 Export void VolcanoErupts()
 {
-	TethysGame::SetEruption(volcanoEruptionLoc.x, volcanoEruptionLoc.y, 75);
+	TethysGame::SetEruption(volcanoEruptionLoc.x, volcanoEruptionLoc.y, 80);
 	//TethysGame::SetEruption(volcanoEruptionLoc.x, volcanoEruptionLoc.y, 1000);
 }
 

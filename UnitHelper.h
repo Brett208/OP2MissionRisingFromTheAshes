@@ -43,10 +43,10 @@ namespace UnitHelper
 	};
 
 
-	bool BuildingConstructed(int player, map_id buildingType);
+	bool BuildingConstructed(int playerNumber, map_id buildingType);
 	bool KitInConVec(int player, map_id structureKitType);
-	bool KitInStructFactory(int player, map_id structureKitType);
-	bool BuildingOrKitAvailable(int player, map_id buildingType);
+	bool KitInStructFactory(int playerNumber, map_id structureKitType);
+	bool BuildingOrKitAvailable(int playerNumber, map_id buildingType);
 	bool IsCombatUnit(map_id unitType);
 	void FindBuildings(std::vector<Unit> &buildings, int playerNumber, const std::vector<map_id> &buildingTypes);
 	void FindBuildingLocations(std::vector<LOCATION> &locations, int playerNumber, const std::vector<map_id> &buildingTypes);

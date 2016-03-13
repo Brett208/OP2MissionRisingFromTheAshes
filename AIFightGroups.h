@@ -41,7 +41,6 @@ namespace AIFightGroups
 		void AIFightGroupMaker::CreateMiddleStealthAttack(LOCATION startLoc);
 
 		void AIFightGroupMaker::CreateEndMixedAttack(LOCATION startLoc);
-		void AIFightGroupMaker::CreateEndScorpAttack(LOCATION startLoc);
 		void AIFightGroupMaker::CreateEndRpgAttack(LOCATION startLoc);
 
 		void AIFightGroupMaker::addToTargetVectorIfBuildingExists(std::vector<map_id> &targets, int playerNumber, map_id mapID);

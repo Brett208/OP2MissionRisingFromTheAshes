@@ -198,12 +198,12 @@ namespace UnitHelper
 		}
 	}
 
-	bool BuildingConstructed(int player, map_id buildingType)
+	bool BuildingConstructed(int playerNumber, map_id buildingType)
 	{
 		Unit structure;
-		PlayerBuildingEnum findStructures(player, buildingType);
+		PlayerBuildingEnum playerBuildingEnum(playerNumber, buildingType);
 
-		while (findStructures.GetNext(structure))
+		while (playerBuildingEnum.GetNext(structure))
 		{
 			return true;
 		}
@@ -211,12 +211,12 @@ namespace UnitHelper
 		return false;
 	}
 
-	bool KitInConVec(int player, map_id structureKitType)
+	bool KitInConVec(int playerNumber, map_id structureKitType)
 	{
 		Unit vehicle;
-		PlayerUnitEnum findAllVehicles(player);
+		PlayerVehicleEnum playerVehicleEnum(playerNumber);
 
-		while (findAllVehicles.GetNext(vehicle))
+		while (playerVehicleEnum.GetNext(vehicle))
 		{
 			if (vehicle.GetType() == mapConVec && vehicle.GetCargo() == structureKitType)
 			{
@@ -227,11 +227,11 @@ namespace UnitHelper
 		return false;
 	}
 
-	bool KitInStructFactory(int player, map_id structureKitType)
+	bool KitInStructFactory(int playerNumber, map_id structureKitType)
 	{
 		// Below Requires HFL/UnitEx for GetFactoryCargo.
 		UnitEx nextSF;
-		PlayerBuildingEnum findAllSFs(player, mapStructureFactory);
+		PlayerBuildingEnum findAllSFs(playerNumber, mapStructureFactory);
 
 		while (findAllSFs.GetNext(nextSF))
 		{
