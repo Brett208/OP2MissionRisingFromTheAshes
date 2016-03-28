@@ -90,6 +90,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalOptions>/verbose %(AdditionalOptions)</AdditionalOptions>
@@ -98,6 +99,10 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
+      <AdditionalDependencies>vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -114,6 +119,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalOptions>/verbose %(AdditionalOptions</AdditionalOptions>
@@ -122,6 +128,10 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
+      <AdditionalDependencies>vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -140,6 +150,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -150,6 +161,10 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
+      <AdditionalDependencies>vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
@@ -168,6 +183,7 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\API;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -178,6 +194,10 @@ rem copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Out
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
+      <AdditionalDependencies>vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
     </Link>
     <PostBuildEvent>
       <Command>rem copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"

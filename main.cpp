@@ -61,10 +61,10 @@ int InitProc()
 	InitializeVolcano(volcanoEruptionLoc);
 	
 	Player[0].GoEden();
-	Player[0].SetColorNumber(0);
+	Player[0].SetColorNumber(PlayerColor::PlayerBlue);
 
 	Player[1].GoPlymouth();
-	Player[1].SetColorNumber(1);
+	Player[1].SetColorNumber(PlayerColor::PlayerRed);
 	Player[1].GoAI();
 	TethysGame::ForceMoraleGood(1);
 	InitializeAIHelperClasses();
@@ -105,7 +105,7 @@ int InitProc()
 	return 1;
 }
 
-void AIProc()
+Export void AIProc()
 {
 	//Ensure random stealth attacks turn on lights when attacked.
 	if (scriptGlobal.PeriodicFightGroup.IsInitialized() &&
