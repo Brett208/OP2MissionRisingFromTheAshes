@@ -24,6 +24,8 @@ Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Outpost2", "..\..\..\..\Gam
 		AttachLaunchAction = No
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Outpost2Dialog", "..\..\API\Outpost2Dialog\Outpost2Dialog.vcxproj", "{AA68AF24-3B46-4567-B3CF-826C5A48AE76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -80,6 +82,18 @@ Global
 		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.Release|x86.ActiveCfg = Release|x86
 		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.ReleaseMinSize|x64.ActiveCfg = Release|x86
 		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.ReleaseMinSize|x86.ActiveCfg = Release|x86
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x64.ActiveCfg = Debug|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x64.Build.0 = Debug|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x86.ActiveCfg = Debug|Win32
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x86.Build.0 = Debug|Win32
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x64.ActiveCfg = Release|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x64.Build.0 = Release|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x86.ActiveCfg = Release|Win32
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x86.Build.0 = Release|Win32
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x64.ActiveCfg = Release|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x64.Build.0 = Release|x64
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x86.ActiveCfg = Release|Win32
+		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

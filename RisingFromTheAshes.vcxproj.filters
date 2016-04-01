@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="odasl">
-      <UniqueIdentifier>{48106541-0ca2-4f5d-aae6-4cb145597b9b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayerBaseBuilder.h">
@@ -42,12 +39,6 @@
     <ClInclude Include="MapHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="odasl\odasl.h">
-      <Filter>odasl</Filter>
-    </ClInclude>
-    <ClInclude Include="Briefing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -68,9 +59,6 @@
     <ClCompile Include="AIHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Briefing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Disasters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,6 +74,9 @@
     <ClCompile Include="PlayerBaseBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BriefingDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Readme.txt" />
@@ -94,11 +85,6 @@
   <ItemGroup>
     <None Include="Ashes.map" />
     <None Include="briefing.rtf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="odasl\odasl.lib">
-      <Filter>odasl</Filter>
-    </Library>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="RisingFromTheAshes.rc">
