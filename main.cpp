@@ -96,7 +96,7 @@ int InitProc()
 	
 	scriptGlobal.TrigRareMineDestroyed = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "SendRareOreFightGroup");
 	scriptGlobal.TrigSpaceportBuilt = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(800), "SendSpaceportFightGroup");
-	scriptGlobal.TrigPhoenixModuleResearched = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "SendPhoenixModuleFightGroup"); //CreateCountTrigger(true, true, 0, mapPhoenixModule, mapNone, 1, cmpEqual, "CreatePhoenixModuleAttack");
+	scriptGlobal.TrigPhoenixModuleResearched = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "SendPhoenixModuleFightGroup");
 	
 	scriptGlobal.TrigAIBaseReinforcement = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "AddRepairConVec");
 
@@ -136,7 +136,7 @@ Export void AIProc()
 		scriptGlobal.TrigRareMineDestroyed.Enable();
 	}
 
-	if (UnitHelper::BuildingConstructed(Player0, mapSpaceport) && 
+	if ((UnitHelper::BuildingConstructed(Player0, mapSpaceport) || TethysGame::Tick() * 100 > 1200) && 
 		!scriptGlobal.TrigSpaceportBuilt.HasFired(Player0))
 	{
 		scriptGlobal.TrigSpaceportBuilt.Enable();
@@ -170,10 +170,8 @@ void InitializeVolcano(LOCATION lavaFlowStartLoc)
 	scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, marksToErupt * 100, "VolcanoErupts");
 	//scriptGlobal.TrigVolcanoEruption = CreateTimeTrigger(true, true, 10, "VolcanoErupts");
 
-	MapHelper::SetLavaPossibleAllSlowCells(MAP_RECT(
-		LOCATION(0, 0), LOCATION(64, 256)));
-
-	MapHelper::SetLavaPossibleRegion(MAP_RECT(LOCATION(50 + X_, 125 + Y_), LOCATION(51 + X_, 130 + Y_)));
+	MapHelper::SetLavaPossibleRegion(MAP_RECT(LOCATION(50 + X_, 125 + Y_), LOCATION(51 + X_, 131 + Y_)));
+	MapHelper::SetLavaPossibleAllSlowCells(MAP_RECT(LOCATION(0 + X_, 0 + Y_), LOCATION(64 + X_, 256 + Y_)));
 
 	MapHelper::SetSouthEastLavaFlowAni(lavaFlowStartLoc);
 }

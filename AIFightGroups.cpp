@@ -56,6 +56,13 @@ namespace AIFightGroups
 
 		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapRPG, map_id::mapESG, map_id::mapStickyfoam, map_id::mapEMP,
 			map_id::mapESG, map_id::mapRPG, map_id::mapEMP, map_id::mapStickyfoam, map_id::mapRPG };
+
+		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		{
+			turrets.push_back(map_id::mapESG);
+			turrets.push_back(map_id::mapESG);
+		}
+
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapPanther, turrets);
 
 		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.SpecialFightGroup, units, map_id::mapSpaceport);
@@ -115,9 +122,17 @@ namespace AIFightGroups
 	{
 		std::vector<Unit> units;
 
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapPanther, std::vector<map_id> {
-			map_id::mapStickyfoam, map_id::mapMicrowave, map_id::mapMicrowave, map_id::mapRPG,
-				map_id::mapEMP, map_id::mapEMP, map_id::mapStickyfoam});
+		std::vector<map_id> turrets{ map_id::mapStickyfoam, map_id::mapMicrowave, map_id::mapMicrowave, 
+			map_id::mapRPG, map_id::mapEMP, map_id::mapEMP, map_id::mapStickyfoam };
+
+		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		{
+			turrets.push_back(map_id::mapESG);
+			turrets.push_back(map_id::mapESG); 
+			turrets.push_back(map_id::mapEMP);
+		}
+
+		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapPanther, turrets);
 
 		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}
@@ -127,7 +142,16 @@ namespace AIFightGroups
 	{
 		std::vector<Unit> units;
 
-		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapSupernova, map_id::mapStickyfoam, map_id::mapSupernova, map_id::mapRPG, map_id::mapRPG, map_id::mapSupernova, map_id::mapEMP };
+		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapSupernova, map_id::mapStickyfoam, 
+			map_id::mapSupernova, map_id::mapRPG, map_id::mapRPG, map_id::mapSupernova, map_id::mapEMP };
+		
+		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		{
+			turrets.push_back(map_id::mapSupernova);
+			turrets.push_back(map_id::mapEMP);
+			turrets.push_back(map_id::mapESG);
+		}
+		
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapLynx, turrets);
 
 		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
@@ -141,7 +165,7 @@ namespace AIFightGroups
 
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc, UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
 		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -1), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 12);
-		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -2), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 8);
+		VehicleBuilderAI.CreateLineOfVehicles(units, startLoc + LOCATION(0, -2), UnitDirection::East, 1, map_id::mapScorpion, map_id::mapEnergyCannon, 8);	
 
 		VehicleBuilderAI.PopulateFightGroup(scriptGlobal.PeriodicFightGroup, units, GetAttackTarget(Player0));
 	}

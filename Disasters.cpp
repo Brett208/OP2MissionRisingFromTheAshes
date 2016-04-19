@@ -31,7 +31,7 @@ void CreateMeteor(const std::vector<LOCATION> &criticalBuildingLocations)
 	{
 		meteorSize = 2;
 		
-		//Prevents large meteors until after 200 ticks.
+		//Prevents large meteors until after 200 marks.
 		if (TethysGame::Tick() < 200 * 100)
 		{
 			meteorSize = 1;
