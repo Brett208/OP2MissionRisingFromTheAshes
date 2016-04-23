@@ -136,7 +136,8 @@ Export void AIProc()
 		scriptGlobal.TrigRareMineDestroyed.Enable();
 	}
 
-	if ((UnitHelper::BuildingConstructed(Player0, mapSpaceport) || TethysGame::Tick() * 100 > 1200) && 
+	if ((UnitHelper::BuildingConstructed(Player0, mapSpaceport) || 
+		(Player[0].Difficulty() == PlayerDifficulty::DiffHard && TethysGame::Tick() / 100 > 1150)) && 
 		!scriptGlobal.TrigSpaceportBuilt.HasFired(Player0))
 	{
 		scriptGlobal.TrigSpaceportBuilt.Enable();

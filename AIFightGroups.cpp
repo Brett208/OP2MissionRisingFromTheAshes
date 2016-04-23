@@ -57,7 +57,7 @@ namespace AIFightGroups
 		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapRPG, map_id::mapESG, map_id::mapStickyfoam, map_id::mapEMP,
 			map_id::mapESG, map_id::mapRPG, map_id::mapEMP, map_id::mapStickyfoam, map_id::mapRPG };
 
-		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		if (Player[0].Difficulty() == PlayerDifficulty::DiffHard)
 		{
 			turrets.push_back(map_id::mapESG);
 			turrets.push_back(map_id::mapESG);
@@ -125,7 +125,7 @@ namespace AIFightGroups
 		std::vector<map_id> turrets{ map_id::mapStickyfoam, map_id::mapMicrowave, map_id::mapMicrowave, 
 			map_id::mapRPG, map_id::mapEMP, map_id::mapEMP, map_id::mapStickyfoam };
 
-		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		if (Player[0].Difficulty() == PlayerDifficulty::DiffHard)
 		{
 			turrets.push_back(map_id::mapESG);
 			turrets.push_back(map_id::mapESG); 
@@ -145,7 +145,7 @@ namespace AIFightGroups
 		std::vector<map_id> turrets { map_id::mapEMP, map_id::mapSupernova, map_id::mapStickyfoam, 
 			map_id::mapSupernova, map_id::mapRPG, map_id::mapRPG, map_id::mapSupernova, map_id::mapEMP };
 		
-		if (Player[0].Difficulty == PlayerDifficulty::DiffHard)
+		if (Player[0].Difficulty() == PlayerDifficulty::DiffHard)
 		{
 			turrets.push_back(map_id::mapSupernova);
 			turrets.push_back(map_id::mapEMP);
