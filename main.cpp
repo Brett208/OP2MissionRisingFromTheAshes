@@ -45,6 +45,7 @@ void CheckOnTriggeringBaseReinforcements();
 bool CheckIfGameFailed();
 void UpdateAIVehicleFactory();
 void RetreatAINonCombatantsSouth(int southernYCoordOfEnemyCombatant);
+void MakeBasePowerfulForDebug();
 
 /**
  * Called once when level is first initialized.
@@ -101,6 +102,10 @@ int InitProc()
 	scriptGlobal.TrigAIBaseReinforcement = CreateTimeTrigger(false, true, 1000 + TethysGame::GetRand(1200), "AddRepairConVec");
 
 	TethysGame::SetMusicPlayList(7, 1, PlayList);
+
+#if _DEBUG
+	//MakeBasePowerfulForDebug();
+#endif
 
 	return 1;
 }
@@ -347,19 +352,19 @@ void InitializeVictoryConditions()
 {
 	// Evacuation Module
 	scriptGlobal.TrigVictoryColonists = CreateCountTrigger(true, true, Player0, mapEvacuationModule, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
-	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryColonists, "Evacuate 200 colonists to the starship.");
+	CreateVictoryCondition(true, false, scriptGlobal.TrigVictoryColonists, "Evacuate 200 colonists to the starship.");
 
 	// Rare Metals Cargo
 	scriptGlobal.TrigVictoryRareMetals = CreateCountTrigger(true, true, Player0, mapRareMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
-	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryRareMetals, "Evacuate 10000 units of Rare Metals to the starship.");
+	CreateVictoryCondition(true, false, scriptGlobal.TrigVictoryRareMetals, "Evacuate 10000 units of Rare Metals to the starship.");
 
 	// Common Metals Cargo
 	scriptGlobal.TrigVictoryCommonMetals = CreateCountTrigger(true, true, Player0, mapCommonMetalsCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
-	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryCommonMetals, "Evacuate 10000 units of Common Metals to the starship.");
+	CreateVictoryCondition(true, false, scriptGlobal.TrigVictoryCommonMetals, "Evacuate 10000 units of Common Metals to the starship.");
 
 	// Food Cargo
 	scriptGlobal.TrigVictoryFood = CreateCountTrigger(true, true, Player0, mapFoodCargo, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
-	CreateVictoryCondition(true, true, scriptGlobal.TrigVictoryFood, "Evacuate 10000 units of food to the starship.");
+	CreateVictoryCondition(true, false, scriptGlobal.TrigVictoryFood, "Evacuate 10000 units of food to the starship.");
 
 	// Skydock
 	scriptGlobal.TrigVictorySkydock = CreateCountTrigger(true, true, Player0, mapSkydock, mapNone, 1, cmpGreaterEqual, "NoResponseToTrigger");
@@ -418,6 +423,7 @@ bool CheckIfGameFailed()
 
 	return false;
 }
+
 
 Export void VolcanoErupts()
 {
