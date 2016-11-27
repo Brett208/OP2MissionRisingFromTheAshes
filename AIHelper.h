@@ -1,8 +1,8 @@
 #pragma once
 
-#include <vector>
 #include "HFL\Source\HFL.h"
 #include "Outpost2DLL\Outpost2DLL.h"
+#include <vector>
 
 namespace AIHelper
 {
