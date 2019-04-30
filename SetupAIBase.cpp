@@ -179,16 +179,16 @@ void BuildEnemyBase(UnitHelper::VehicleBuilder vehicleBuilderAI, LOCATION common
 	MiningGroup miningGroup;
 	MAP_RECT miningIdleRect = MAP_RECT(LOCATION(35 + X_, 176 + Y_), LOCATION(55 + X_, 182 + Y_));
 
-	vehicleBuilderAI.SetupMiningGroup(miningGroup, vehicleFactory, mineCommon, smelterCommonWest, miningIdleRect, 3);
+	vehicleBuilderAI.SetupMiningGroup(miningGroup, mineCommon, smelterCommonWest, miningIdleRect, 3);
 	scriptGlobal.ReinforceVehicleBuildGroup.RecordVehReinforceGroup(miningGroup, 3);
 
-	vehicleBuilderAI.SetupMiningGroup(miningGroup, vehicleFactory, mineCommon, smelterCommonEast, miningIdleRect, 3);
+	vehicleBuilderAI.SetupMiningGroup(miningGroup, mineCommon, smelterCommonEast, miningIdleRect, 3);
 	scriptGlobal.ReinforceVehicleBuildGroup.RecordVehReinforceGroup(miningGroup, 3);
 
-	vehicleBuilderAI.SetupMiningGroup(miningGroup, vehicleFactory, mineRare, smelterRareWest, miningIdleRect, 3);
+	vehicleBuilderAI.SetupMiningGroup(miningGroup, mineRare, smelterRareWest, miningIdleRect, 3);
 	scriptGlobal.ReinforceVehicleBuildGroup.RecordVehReinforceGroup(miningGroup, 2);
 
-	vehicleBuilderAI.SetupMiningGroup(miningGroup, vehicleFactory, mineRare, smelterRareEast, miningIdleRect, 3);
+	vehicleBuilderAI.SetupMiningGroup(miningGroup, mineRare, smelterRareEast, miningIdleRect, 3);
 	scriptGlobal.ReinforceVehicleBuildGroup.RecordVehReinforceGroup(miningGroup, 2);
 
 	SetupBuildGroup(earthworker, buildingConvec, structFactory, vehicleFactory, buildingVector, nonCombatSafeRect);

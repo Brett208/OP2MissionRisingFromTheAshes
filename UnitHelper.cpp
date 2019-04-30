@@ -34,11 +34,10 @@ namespace UnitHelper
 	}
 
 	void VehicleBuilder::SetupMiningGroup(
-		MiningGroup &miningGroup, const Unit &vehicleFactory, Unit &mine, Unit &smelter, MAP_RECT &oreIdleRect, int numbOfTrucks)
+		MiningGroup &miningGroup, Unit &mine, Unit &smelter, MAP_RECT &oreIdleRect, int numbOfTrucks)
 	{
 		miningGroup = CreateMiningGroup(Player[1]);
 
-		LOCATION smelterLoc = smelter.Location();
 		miningGroup.Setup(mine, smelter, oreIdleRect);
 
 		Unit truck;

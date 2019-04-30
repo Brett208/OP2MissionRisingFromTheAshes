@@ -16,7 +16,7 @@ namespace UnitHelper
 		void SetVehicleDirection(UnitDirection unitDirection);
 		UnitDirection GetVehicleDirection();
 
-		void SetupMiningGroup(MiningGroup &miningGroup, const Unit &vehicleFactory, Unit &mine, Unit &smelter, MAP_RECT &oreIdleRect, int numbOfTrucks);
+		void SetupMiningGroup(MiningGroup &miningGroup, Unit &mine, Unit &smelter, MAP_RECT &oreIdleRect, int numbOfTrucks);
 		void PopulateFightGroup(FightGroup &fightGroup, const std::vector<Unit> &units);
 		void PopulateFightGroup(FightGroup &fightGroup, const std::vector<Unit> &units, map_id target);
 		void CreateVechLightsOn(Unit &unit, map_id vehicleType, LOCATION location, map_id cargo);
