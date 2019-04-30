@@ -516,6 +516,18 @@ BEGIN_TECH "Independent Turret Power Systems" 05111
     UNIT_PROP MICROWAVE Penetration_Damage 30
 END_TECH 
 
+BEGIN_TECH "Lava Defenses" 05701
+    CATEGORY        2
+    DESCRIPTION     "Earthworkers may now deploy Lava Walls.  _______________________________________ In our search for a way to reduce the threat of volcanic eruptions, we have found a material that can, at least temporarily, resist the intense heat of a lava flow.  This material, sprayed on a wall built of heavily-compressed regolith, can delay the approach of lava to our structures, giving us more time to evacuate."
+    TEASER          "Allows Earthworkers to deploy Lava Walls.  _______________________________________ Volcanic eruptions continue to pose a substantial danger.  We must find some way of routing these lava flows away from the colony."
+    REQUIRES        05110
+    REQUIRES        03202
+    EDEN_COST       -1
+    PLYMOUTH_COST   1200
+    MAX_SCIENTISTS  12
+    LAB             3
+END_TECH
+
 BEGIN_TECH  "Magnetohydrodynamics" 05107
     CATEGORY        3
     DESCRIPTION     "Structure Factories may now produce MHD Generator structure kits.  _______________________________________ Our studies of New Terra's shifting magnetic field have produced a serendipitous side benefit.  We have discovered a way to harness the shifts through electromagnetic induction, producing a substantial amount of electrical power."
