@@ -69,12 +69,10 @@
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
-copy /Y "$(ProjectDir)Ashes.map" "..\..\..\..\GameDownload\Outpost2\trunk\Ashes.map"
-copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost2\trunk\multitekNoLavaWalls.txt"</Command>
+      <Command>if defined Outpost2Path (xcopy /y /d "$(TargetPath)" "$(Outpost2Path)\") else (echo Outpost2Path environment variable not defined. Skipping Post Build Copy.)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost 2 game directory in SVN. NOTE: Remaked out by default.</Message>
+      <Message>Copy DLL to game folder</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -101,12 +99,10 @@ copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(TargetPath)" "..\..\..\..\GameDownload\Outpost2\trunk\$(TargetFilename)"
-copy /Y "$(ProjectDir)Ashes.map" "..\..\..\..\GameDownload\Outpost2\trunk\Ashes.map"
-copy /Y "$(ProjectDir)multitekNoLavaWalls.txt" "..\..\..\..\GameDownload\Outpost2\trunk\multitekNoLavaWalls.txt"</Command>
+      <Command>if defined Outpost2Path (xcopy /y /d "$(TargetPath)" "$(Outpost2Path)\") else (echo Outpost2Path environment variable not defined. Skipping Post Build Copy.)</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Copy Level DLL, Map File and Tech Tree file to Outpost 2 game directory in SVN. NOTE: Remaked out by default.</Message>
+      <Message>Copy DLL to game folder</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
