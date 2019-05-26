@@ -55,8 +55,6 @@ void MakeBasePowerfulForDebug();
  */
 int InitProc()
 {
-	HFLInit();
-	
 	ShowBriefing();
 
 	InitializeVolcano(volcanoEruptionLoc);
