@@ -18,13 +18,13 @@ void BuildPlayerBase()
 	TethysGame::CreateUnit(unit, mapCommonOreSmelter, LOCATION(32 + X_, 55 + Y_), Player0, map_id::mapNone, 0);
 
 	//CC to Agridome
-	CreateTubeOrWallLine(25 + X_, 48 + Y_, 31 + X_, 48 + Y_, mapTube);
+	CreateTubeLine(LOCATION(25 + X_, 48 + Y_), LOCATION(31 + X_, 48 + Y_));
 
 	//CC to Struct Factory
-	CreateTubeOrWallLine(24 + X_, 49 + Y_, 24 + X_, 55 + Y_, mapTube);
+	CreateTubeLine(LOCATION(24 + X_, 49 + Y_), LOCATION(24 + X_, 55 + Y_));
 
 	//CC to Smelter
-	CreateTubeOrWallLine(24 + X_, 55 + Y_, 32 + X_, 55 + Y_, mapTube);
+	CreateTubeLine(LOCATION(24 + X_, 55 + Y_), LOCATION(32 + X_, 55 + Y_));
 
 	TethysGame::CreateUnit(unit, mapTokamak, LOCATION(6 + X_, 55 + Y_), Player0, map_id::mapNone, 0);
 

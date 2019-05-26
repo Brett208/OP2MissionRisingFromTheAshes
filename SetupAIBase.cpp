@@ -153,13 +153,13 @@ void BuildEnemyBase(UnitHelper::VehicleBuilder vehicleBuilderAI, LOCATION common
 	AddNewBuildingToVector(buildingVector, map_id::mapRareStorage, LOCATION(23 + X_, 196 + Y_));
 
 	//Tubes Rare Smelters to Common Ore Smelters
-	CreateTubeOrWallLine(20 + X_, 188 + Y_, 55 + X_, 188 + Y_, map_id::mapTube);
+	CreateTubeLine(LOCATION(20 + X_, 188 + Y_), LOCATION(55 + X_, 188 + Y_));
 
 	//Tubes Rare Smelter to Agrigome to Structure Factory to Command Center
-	CreateTubeOrWallLine(33 + X_, 189 + Y_, 33 + X_, 208 + Y_, map_id::mapTube);
+	CreateTubeLine(LOCATION(33 + X_, 189 + Y_), LOCATION(33 + X_, 208 + Y_));
 
 	//Tubes Structure Factory to Vehicle Factory
-	CreateTubeOrWallLine(32 + X_, 198 + Y_, 19 + X_, 198 + Y_, map_id::mapTube);
+	CreateTubeLine(LOCATION(32 + X_, 198 + Y_), LOCATION(19 + X_, 198 + Y_));
 
 	//Needs UnitEx initialization for repair Convec
 	TethysGame::CreateUnit(scriptGlobal.AIRepairConvec, map_id::mapConVec, LOCATION(22 + X_, 200 + Y_), Player1, map_id::mapNone, UnitDirection::East);
