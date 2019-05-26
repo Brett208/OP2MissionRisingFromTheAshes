@@ -5,67 +5,34 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RisingFromTheAshes", "RisingFromTheAshes.vcxproj", "{2DD0A285-3253-4B9C-B425-680022F2BAC7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Outpost2DLL", "..\..\API\Outpost2DLL\Outpost2DLL.vcxproj", "{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Outpost2DLL", "OP2MissionSDK\Outpost2DLL\Outpost2DLL.vcxproj", "{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OP2Helper", "..\..\API\OP2Helper\OP2Helper.vcxproj", "{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OP2Helper", "OP2MissionSDK\OP2Helper\OP2Helper.vcxproj", "{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HFL", "..\..\API\HFL\Source\HFL.vcxproj", "{0FC43A25-FB89-4258-849B-CB3C0A061E0D}"
-EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "Outpost2", "..\..\..\..\GameDownload\Outpost2\trunk\Outpost2.exe", "{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}"
-	ProjectSection(DebuggerProjectSystem) = preProject
-		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Users\Brett\Documents\Outpost2SVN\GameDownload\Outpost2\trunk\Outpost2.exe
-		RemoteMachine = ENTERPRISEPC
-		StartingDirectory = C:\Users\Brett\Documents\Outpost2SVN\GameDownload\Outpost2\trunk
-		Environment = Default
-		LaunchingEngine = 00000000-0000-0000-0000-000000000000
-		UseLegacyDebugEngines = No
-		LaunchSQLEngine = No
-		AttachLaunchAction = No
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Outpost2Dialog", "..\..\API\Outpost2Dialog\Outpost2Dialog.vcxproj", "{AA68AF24-3B46-4567-B3CF-826C5A48AE76}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HFL", "OP2MissionSDK\HFL\Source\HFL.vcxproj", "{0FC43A25-FB89-4258-849B-CB3C0A061E0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
-		ReleaseMinSize|x86 = ReleaseMinSize|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.Debug|x86.ActiveCfg = Debug|Win32
 		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.Debug|x86.Build.0 = Debug|Win32
 		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.Release|x86.ActiveCfg = Release|Win32
 		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.Release|x86.Build.0 = Release|Win32
-		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.ReleaseMinSize|x86.ActiveCfg = Release|Win32
-		{2DD0A285-3253-4B9C-B425-680022F2BAC7}.ReleaseMinSize|x86.Build.0 = Release|Win32
 		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.Debug|x86.ActiveCfg = Debug|Win32
 		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.Debug|x86.Build.0 = Debug|Win32
 		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.Release|x86.ActiveCfg = Release|Win32
 		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.Release|x86.Build.0 = Release|Win32
-		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.ReleaseMinSize|x86.ActiveCfg = Release|Win32
-		{B3F40368-F3CC-4EC5-A758-F5DAD08FEDDC}.ReleaseMinSize|x86.Build.0 = Release|Win32
 		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.Debug|x86.ActiveCfg = Debug|Win32
 		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.Debug|x86.Build.0 = Debug|Win32
 		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.Release|x86.ActiveCfg = Release|Win32
 		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.Release|x86.Build.0 = Release|Win32
-		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.ReleaseMinSize|x86.ActiveCfg = Release|Win32
-		{0B520C87-4CFD-4A4D-ABD4-F87D26DF9AAD}.ReleaseMinSize|x86.Build.0 = ReleaseMinSize|Win32
 		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.Debug|x86.ActiveCfg = Debug|Win32
 		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.Debug|x86.Build.0 = Debug|Win32
 		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.Release|x86.ActiveCfg = Release|Win32
 		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.Release|x86.Build.0 = Release|Win32
-		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.ReleaseMinSize|x86.ActiveCfg = ReleaseMinSize|Win32
-		{0FC43A25-FB89-4258-849B-CB3C0A061E0D}.ReleaseMinSize|x86.Build.0 = ReleaseMinSize|Win32
-		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.Debug|x86.ActiveCfg = Release|x86
-		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.Release|x86.ActiveCfg = Release|x86
-		{D2FA1B30-2EBC-4199-BD12-A7C4A06B7B24}.ReleaseMinSize|x86.ActiveCfg = Release|x86
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x86.ActiveCfg = Debug|Win32
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Debug|x86.Build.0 = Debug|Win32
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x86.ActiveCfg = Release|Win32
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.Release|x86.Build.0 = Release|Win32
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x86.ActiveCfg = Release|Win32
-		{AA68AF24-3B46-4567-B3CF-826C5A48AE76}.ReleaseMinSize|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

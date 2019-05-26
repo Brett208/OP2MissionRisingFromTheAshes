@@ -42,11 +42,9 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>../../API/;$(IncludePath)</IncludePath>
     <TargetName>c_ashes</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>../../API/;$(IncludePath)</IncludePath>
     <TargetName>c_ashes</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -54,7 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>OP2MissionSDK%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -63,7 +61,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
-      <AdditionalDependencies>vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OP2MissionSDK\odasl\odasl.lib;vcruntime.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -82,7 +80,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>OP2MissionSDK%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -93,7 +91,7 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <BaseAddress>0x11000000</BaseAddress>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OP2MissionSDK\odasl\odasl.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -106,16 +104,13 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\API\HFL\Source\HFL.vcxproj">
+    <ProjectReference Include="OP2MissionSDK\HFL\Source\HFL.vcxproj">
       <Project>{0fc43a25-fb89-4258-849b-cb3c0a061e0d}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\API\OP2Helper\OP2Helper.vcxproj">
+    <ProjectReference Include="OP2MissionSDK\OP2Helper\OP2Helper.vcxproj">
       <Project>{0b520c87-4cfd-4a4d-abd4-f87d26df9aad}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\..\API\Outpost2Dialog\Outpost2Dialog.vcxproj">
-      <Project>{aa68af24-3b46-4567-b3cf-826c5a48ae76}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\API\Outpost2DLL\Outpost2DLL.vcxproj">
+    <ProjectReference Include="OP2MissionSDK\Outpost2DLL\Outpost2DLL.vcxproj">
       <Project>{b3f40368-f3cc-4ec5-a758-f5dad08feddc}</Project>
     </ProjectReference>
   </ItemGroup>
