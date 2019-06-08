@@ -1,6 +1,6 @@
 #pragma once
 
-#include "HFL\Source\HFL.h"
+#include "HFL/Source/HFL.h"
 #include "outpost2DLL/Outpost2DLL.h"
 
 struct ScriptGlobal

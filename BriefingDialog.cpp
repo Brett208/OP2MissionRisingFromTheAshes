@@ -66,4 +66,3 @@ LRESULT CALLBACK DialogProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	}
 	return FALSE;
 }
-

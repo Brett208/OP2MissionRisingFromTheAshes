@@ -1,9 +1,9 @@
-#include <vector>
-#include "Outpost2DLL\Outpost2DLL.h"
-#include "OP2Helper\OP2Helper.h"
 #include "AIHelper.h"
 #include "UnitHelper.h"
 #include "ScriptGlobal.h"
+#include "OP2Helper/OP2Helper.h"
+#include "Outpost2DLL/Outpost2DLL.h"
+#include <vector>
 
 extern ScriptGlobal scriptGlobal;
 

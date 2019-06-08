@@ -6,10 +6,8 @@
 #include "AIHelper.h"
 #include "PlayList.h"
 #include "ScriptGlobal.h"
-
-#include "OP2Helper\OP2Helper.h"
-#include "Outpost2DLL\Outpost2DLL.h" 
-
+#include "OP2Helper/OP2Helper.h"
+#include "Outpost2DLL/Outpost2DLL.h" 
 #include <vector> 
 
 // Declaring Classes
@@ -421,7 +419,6 @@ bool CheckIfGameFailed()
 
 	return false;
 }
-
 
 Export void VolcanoErupts()
 {
