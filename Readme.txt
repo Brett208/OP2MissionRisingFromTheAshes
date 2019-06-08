@@ -29,3 +29,10 @@ If you need help troubleshooting the compiled scenario or the source code, use t
   * SirBomber - For making great tutorials that without I probably wouldn't have been able to learn the SDK.
   * Hooman - For providing technical help, especially for re-creating the Plymouth Starship II colony game. 
     This provided a lot of insight on using the SDK. Also, for solving the victory conditions/Saving bug.
+
+** Change Log
+
+Version 1.0.6
+ - Stop player from being able to build lava walls (Tech file update)
+ - Move HFL initialization into DLLMain
+ - Improve header include formatting
