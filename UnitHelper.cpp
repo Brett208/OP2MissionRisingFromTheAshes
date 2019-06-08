@@ -1,12 +1,12 @@
 #include "UnitHelper.h"
+#include <stdexcept>
 
 namespace UnitHelper
 {
 	void VehicleBuilder::SetPlayer(int player)
 	{
-		if (playerNumber > 6)
-		{
-			throw "Maximum of 6 players allowed.";
+		if (playerNumber > 6) {
+			throw std::runtime_error("Maximum of 6 players allowed.");
 		}
 
 		playerNumber = player;
@@ -97,7 +97,7 @@ namespace UnitHelper
 			return [](LOCATION startLoc, int spacing) { return startLoc + LOCATION(spacing, spacing); };
 		}
 
-		throw "Invalid UnitDirection passed into Function.";
+		throw std::runtime_error("Invalid UnitDirection passed into Function.");
 	}
 
 	void VehicleBuilder::CreateLineOfVehicles(std::vector<Unit> &units, LOCATION startLoc, UnitDirection lineDirection,
@@ -170,12 +170,12 @@ namespace UnitHelper
 	{
 		if (maxDamage < minDamage)
 		{
-			throw "maxDamage must be greater than minDamage.";
+			throw std::runtime_error("maxDamage must be greater than minDamage.");
 		}
 
 		if (percentChanceDamaged > 100 || percentChanceDamaged < 0)
 		{
-			throw "percentChanceDamaged must be between 0 and 100.";
+			throw std::runtime_error("percentChanceDamaged must be between 0 and 100.");
 		}
 
 		for (Unit unit : units)

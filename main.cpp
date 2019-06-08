@@ -7,8 +7,8 @@
 #include "PlayList.h"
 #include "ScriptGlobal.h"
 #include "OP2Helper/OP2Helper.h"
-#include "Outpost2DLL/Outpost2DLL.h" 
-#include <vector> 
+#include "Outpost2DLL/Outpost2DLL.h"
+#include <vector>
 
 // Declaring Classes
 UnitHelper::VehicleBuilder vehicleBuilderAI;

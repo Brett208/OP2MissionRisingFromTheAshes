@@ -1,4 +1,5 @@
 #include "AIHelper.h"
+#include <stdexcept>
 
 namespace AIHelper
 {
@@ -13,9 +14,8 @@ namespace AIHelper
 
 	void ThrowExceptionIfNotTubeOrWalls(map_id type)
 	{
-		if (!IsTubeOrWall(type))
-		{
-			throw "Type must be a tube or a wall.";//std::invalid_argument();
+		if (!IsTubeOrWall(type)) {
+			throw std::runtime_error("Type must be a tube or a wall.");
 		}
 	}
 

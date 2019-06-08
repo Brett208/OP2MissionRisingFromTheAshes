@@ -1,4 +1,5 @@
 #include "MapHelper.h"
+#include <stdexcept>
 
 namespace MapHelper
 {
@@ -80,9 +81,8 @@ namespace MapHelper
 
 	void CreateFumarolesFromRandomLocs(size_t numberOfFumaroles, const std::vector<LOCATION> &locations)
 	{
-		if (numberOfFumaroles > locations.size())
-		{
-			throw "Error";
+		if (numberOfFumaroles > locations.size()) {
+			throw std::runtime_error("Not enough available locations to fit requested fumarole count.");
 		}
 
 		int locationIndex;
