@@ -32,7 +32,7 @@ If you need help troubleshooting the compiled scenario or the source code, use t
 
 ** Change Log
 
-Version 1.0.6
+Version 1.0.7
  - Stop player from being able to build lava walls (Tech file update)
  - Move HFL initialization into DLLMain
  - Improve header include formatting
