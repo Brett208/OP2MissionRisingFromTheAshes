@@ -53,7 +53,7 @@ void MakeBasePowerfulForDebug();
  * This is where you're going to put your initial units, structures and define
  * environment settings such as day and night.
  */
-int InitProc()
+Export int InitProc()
 {
 	ShowBriefing();
 
