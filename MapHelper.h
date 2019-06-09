@@ -25,5 +25,5 @@ namespace MapHelper
 	LOCATION CreateMagmaWellInRegion(const MAP_RECT &mapRect);
 
 	// Note: Does not perform error checking to ensure fumarole isn't placed in an inapropriate area.
-	void CreateFumarolesFromRandomLocs(size_t numberOfFumaroles, const std::vector<LOCATION> &locations);
+	void CreateFumarolesFromRandomLocs(std::size_t numberOfFumaroles, const std::vector<LOCATION> &locations);
 }
